@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="vendor/normalize.css" />
+    <link rel="stylesheet" href="pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <img class="header__logo" src="images/logo.svg" alt="лого проекта" />
+    </header>
+    <section class="profile">
+      <div class="profile__main-content">
+      <img
+        class="profile__avatar"
+        src="images/portrait.jpg"
+        alt="фото профиля"
+      />
+      <div class="profile__info">
+        <div class="profile__title">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__edit button"></button>
+        </div>
+        <p class="profile__job">Исследователь океана</p>
+      </div>
+    </div>
+      <button class="profile__add button"></button>
+    </section>
+    <section class="elements">
+      <div class="element">
+        <img
+          class="element__image"
+          src="images/chelyabinsk-fog.jpg"
+          alt="Челябинск"
+        />
+        <div class="element__description">
+          <h2 class="element__title">Челябинск</h2>
+          <button class="element__like button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          class="element__image"
+          src="images/chelyabinsk.jpg"
+          alt="Челябинск"
+        />
+        <div class="element__description">
+          <h2 class="element__title">Челябинск</h2>
+          <button class="element__like button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="images/karabash.jpg" alt="Карабаш" />
+        <div class="element__description">
+          <h2 class="element__title">Карабаш</h2>
+          <button class="element__like button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img
+          class="element__image"
+          src="images/sunny-valley.jpg"
+          alt="Солнечная Долина"
+        />
+        <div class="element__description">
+          <h2 class="element__title">Миасс</h2>
+          <button class="element__like button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="images/turgoyak.jpg" alt="Тургояк" />
+        <div class="element__description">
+          <h2 class="element__title">Тургояк</h2>
+          <button class="element__like button"></button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__image" src="images/zlatoust.jpg" alt="Златоуст" />
+        <div class="element__description">
+          <h2 class="element__title">Златоуст</h2>
+          <button class="element__like button"></button>
+        </div>
+      </div>
+    </section>
+    <section class="popup">
+      <div class="popup__container">
+        <form class="form">
+          <img class="popup__close-button button" src="images/close-icon.png" />
+
+          <p class="popup__name">Редактировать профиль</p>
+
+          <label>
+            <input
+              class="form__item name"
+              type="text"
+              name="name"
+              value="name"
+            />
+          </label>
+          <label>
+            <input
+              class="form__item job"
+              type="text"
+              name="job"
+              value="job"
+            />
+          </label>
+          <button class="popup__button">
+            <p class="button_save button">Сохранить</p>
+          </button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__credits">&copy; 2023 Mesto Russia</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

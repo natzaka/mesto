@@ -1,0 +1,6 @@
+.profile__edit {
+  height: 24px;
+  width: 24px;
+  background: url("../../../images/edit-button.png") no-repeat;
+  border: none;
+}

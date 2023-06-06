@@ -1,0 +1,9 @@
+.element__like {
+  background: url("../../../images/like-icon.png") no-repeat;
+  width: 22px;
+  height: 19px;
+  border: none;
+  padding: 0;
+  align-self: center;
+  opacity: 1;
+}

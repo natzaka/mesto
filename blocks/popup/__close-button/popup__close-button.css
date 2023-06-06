@@ -1,0 +1,15 @@
+.popup__close-button {
+  width: 32px;
+  position: absolute;
+  background: transparent;
+  top: -40px;
+  right: -40px;
+  opacity: 1;
+}
+@media screen and (max-width: 450px) {
+  .popup__close-button {
+    width: 20px;
+    top: -36px;
+    right: 0;
+  }
+}

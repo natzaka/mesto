@@ -1,0 +1,23 @@
+.form__item {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 358px;
+  padding: 0 0 13px 0;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 450px) {
+  .form__item {
+    width: 238px;
+    padding: 0;
+    margin-top: 30px;
+  }
+}

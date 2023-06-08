@@ -5,4 +5,11 @@
   font-weight: 400;
   line-height: 21.78px;
   color: #545454;
+  margin: 0;
+}
+@media screen  and (max-width: 450px){
+  .footer__credits {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }

@@ -13,6 +13,8 @@ const page = document.querySelector(".page");
 
 function openPopup() {
   popup.classList.add("popup_opened");
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 }
 edit.addEventListener("click", openPopup);
 
@@ -21,26 +23,13 @@ function closePopup() {
 }
 closePopupButton.addEventListener("click", closePopup);
 
-function setPopupProfileName() {
-  nameInput.value = profileName.textContent.trim();
-}
-function setPopupProfileJob() {
-  jobInput.value = profileJob.textContent.trim();
-}
-setPopupProfileName();
-setPopupProfileJob();
-
-function setProfileInfo() {
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-}
-saveButton.addEventListener("click", setProfileInfo);
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  setProfileInfo();
   closePopup(closePopupButton);
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
   // Эта строчка отменяет стандартную отправку формы.
   // Так мы можем определить свою логику отправки.
   // О том, как это делать, расскажем позже.

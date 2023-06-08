@@ -22,10 +22,7 @@
 
 @media screen and (max-width: 620px) {
   .profile {
-    display: block;
     max-width: 620px;
-    margin-left: 19px;
-    margin-right: 19px;
     margin-bottom: 0;
   }
 }

@@ -1,25 +1,14 @@
 .header {
   min-width: 320px;
+  max-width: 880px;
+  margin-left:auto;
+  margin-right: auto;
   margin-top: 45px;
-}
-.header::after {
-  content: "";
-  border-bottom: 1px solid #545454;
-  height: 0;
-  display: block;
-  opacity: 0.7;
-}
-
-@media screen and (max-width: 880px) {
-  .header {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
 }
 
 @media screen and (max-width: 450px) {
   .header {
-    padding-bottom: 31.6px;
     margin-top: 28px;
   }
 }

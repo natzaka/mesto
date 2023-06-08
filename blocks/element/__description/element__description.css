@@ -1,6 +1,6 @@
 .element__description {
   display: flex;
-  max-height: 80px;
   margin: 25px 15px 31px 21px;
   justify-content: space-between;
+  flex-shrink: 0;
 }

@@ -1,8 +1,11 @@
 .element__title {
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: bold;
   line-height: 29.05px;
   color: #000;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

@@ -1,6 +1,12 @@
 .profile__edit {
   height: 24px;
   width: 24px;
-  background: url("../../../images/edit-button.png") no-repeat;
+  background: url("../../../images/edit-vector.svg") no-repeat;
   border: none;
+  cursor: pointer;
+  opacity: 1;
+}
+.profile__edit:hover {
+  transition: opacity 0.3s;
+  opacity: 0.6;
 }

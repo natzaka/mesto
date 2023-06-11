@@ -17,12 +17,16 @@
   transition: opacity 0.3s;
   opacity: 0.6;
 }
+@media screen and (max-width: 550px) {
+  .popup__close-button {
+    top: -36px;
+    right: 0px;
+  }
+}
 
 @media screen and (max-width: 450px) {
   .popup__close-button {
     width: 20px;
     height: 20px;
-    top: -36px;
-    right: 0px;
   }
 }

@@ -1,8 +1,8 @@
 .profile__add {
-  background: url("../../../images/add-vector.svg") no-repeat;
+  background: url("../../../images/add-vector-no-border.svg") no-repeat;
   width: 150px;
   height: 50px;
-  margin-top: 33px;
+  margin-top: 0px;
   padding: 0;
   border: 2px solid #fff;
   background-size: 22px 22px;
@@ -19,5 +19,7 @@
 @media screen and (max-width: 620px) {
   .profile__add {
     width: 282px;
+    background-size: 16px 16px;
+    margin-top: 34px;
   }
 }

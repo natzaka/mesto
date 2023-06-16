@@ -1,8 +1,8 @@
 // Находим форму в DOM
 let formElement = document.querySelector(".form"); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = formElement.querySelector(".form__item_name"); // Воспользуйтесь инструментом .querySelector()
-let jobInput = formElement.querySelector(".form__item_job"); // Воспользуйтесь инструментом .querySelector()
+let nameInput = formElement.querySelector(".form__item_type_name"); // Воспользуйтесь инструментом .querySelector()
+let jobInput = formElement.querySelector(".form__item_type_job"); // Воспользуйтесь инструментом .querySelector()
 let popup = document.querySelector(".popup");
 const edit = document.querySelector(".profile__edit");
 const closePopupButton = document.querySelector(".popup__close-button");

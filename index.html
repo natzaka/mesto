@@ -83,29 +83,31 @@
             alt="Златоуст"
           />
           <div class="element__description">
-            <h2 class="element__title">
-              Златоуст
-            </h2>
+            <h2 class="element__title">Златоуст</h2>
             <button class="element__like" type="button"></button>
           </div>
         </div>
       </section>
-      </main>
-      <section class="popup">
-        <div class="popup__container">
-          <form class="form" name="form">
-            <button class="popup__close-button" type="button"></button>
-            <h3 class="popup__name">Редактировать профиль</h3>
-            <label>
-              <input class="form__item form__item_name" type="text" name="name" />
-              <input class="form__item form__item_job" type="text" name="job" />
-            </label>
-            <button class="popup__button" type="submit">
-              Сохранить
-            </button>
-          </form>
-        </div>
-      </section>
+    </main>
+    <section class="popup">
+      <div class="popup__container">
+        <form class="form" name="form">
+          <button class="popup__close-button" type="button"></button>
+          <h3 class="popup__name">Редактировать профиль</h3>
+          <input
+            class="form__item form__item_type_name"
+            type="text"
+            name="name"
+          />
+          <input
+            class="form__item form__item_type_job"
+            type="text"
+            name="job"
+          />
+          <button class="popup__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </section>
     <footer class="footer">
       <p class="footer__credits">&copy; 2023 Mesto Russia</p>
     </footer>

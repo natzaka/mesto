@@ -2,6 +2,4 @@
   display: flex;
   margin: 25px 15px 31px 21px;
   justify-content: space-between;
-  flex-shrink: 0;
-  max-height: 23px;
 }

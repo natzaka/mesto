@@ -3,6 +3,8 @@
   height: 32px;
   background: url("../../../images/close-vector.svg") no-repeat;
   position: absolute;
+  background-color: transparent;
+  background-position: center;
   background-size: contain;
   border: none;
   background-color:black;

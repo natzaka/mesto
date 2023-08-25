@@ -1,10 +1,9 @@
-let formElement = document.querySelector(".form"); // Воспользуйтесь методом querySelector()
+const profileForm = document.querySelector(".form_type_profile"); // Воспользуйтесь методом querySelector()
 const page = document.querySelector(".page");
 // Находим поля формы в DOM
-let nameInput = formElement.querySelector(".form__item_type_name"); // Воспользуйтесь инструментом .querySelector()
-let jobInput = formElement.querySelector(".form__item_type_job"); // Воспользуйтесь инструментом .querySelector()
+const nameInput = profileForm.querySelector(".form__item_type_name"); // Воспользуйтесь инструментом .querySelector()
+const jobInput = profileForm.querySelector(".form__item_type_job"); // Воспользуйтесь инструментом .querySelector()
 //попапы
-let popup = document.querySelector(".popup");
 const popupElementEdit = document.querySelector(".popup_edit");
 const popupElementAdd = document.querySelector(".popup_add");
 const popupElementZoom = document.querySelector(".popup_zoom");
@@ -18,17 +17,16 @@ const popupElementZoomCloseButton = popupElementZoom.querySelector(
 const popupElementEditCloseButton = popupElementEdit.querySelector(
   ".popup__close-button"
 );
-const closePopupButton = document.querySelector(".popup__close-button");
 //форма редактирования профиля
-const edit = document.querySelector(".profile__edit");
-let profileName = document.querySelector(".profile__name");
-let profileJob = document.querySelector(".profile__job");
+const buttonEditProfile = document.querySelector(".profile__edit");
+const profileName = document.querySelector(".profile__name");
+const profileJob = document.querySelector(".profile__job");
 const saveButton = document.querySelector(".button_save");
 //форма добавления карточки
-const templateElement = document.querySelector(".elements");
+const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector(".template").content;
 const addPlace = document.querySelector(".profile__add");
-const formButton = document.querySelector("#submit__newCard");
+const cardFormSubmitButton = document.querySelector("#submit__newCard");
 const placeNameInput = document.querySelector(".form__item_type_place-name");
 const placeNameLink = document.querySelector(".form__item_type_link");
 //зум картинки
@@ -38,16 +36,17 @@ const photoName = popupElementZoom.querySelector(".photo-title");
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 }
-addPlace.addEventListener("click", function () {
+function openPopupElementAdd() {
   openPopup(popupElementAdd);
-});
+}
+addPlace.addEventListener("click", openPopupElementAdd);
 //наполнение карточки профиля
-edit.addEventListener("click", function () {
+function openPopupElementEditProfile() {
   openPopup(popupElementEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  console.log(popup);
-});
+}
+buttonEditProfile.addEventListener("click", openPopupElementEditProfile);
 // закрытие попапа
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
@@ -66,7 +65,7 @@ function closePopupElementZoom() {
 popupElementZoomCloseButton.addEventListener("click", closePopupElementZoom);
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   closePopupEditProfile();
   profileName.textContent = nameInput.value;
@@ -80,61 +79,28 @@ function handleFormSubmit(evt) {
 }
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener("submit", handleFormSubmit);
-
-// массив картинок
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 // добавление карточек из массива
-function addNewCard(cardData) {
-  const newCard = renderCard(cardData);
-  templateElement.prepend(newCard);
-}
-function render() {
+function renderInitialCards() {
   initialCards.forEach(function (cardData) {
-    const newCard = renderCard(cardData);
-    templateElement.append(newCard);
+    const newCard = createCard(cardData);
+    cardsContainer.append(newCard);
   });
 }
-function renderCard(inintialCards) {
-  const newHtmlElement = cardTemplate.cloneNode(true);
-  const headerElement = newHtmlElement.querySelector(".element__title");
-  headerElement.textContent = inintialCards.name;
-  const imageElement = newHtmlElement.querySelector(".element__image");
-  imageElement.src = inintialCards.link;
-  imageElement.alt = inintialCards.name;
-  setListenersForCard(newHtmlElement);
-  return newHtmlElement;
+function createCard(cardData) {
+  const card = cardTemplate.cloneNode(true);
+  const headerElement = card.querySelector(".element__title");
+  headerElement.textContent = cardData.name;
+  const imageElement = card.querySelector(".element__image");
+  imageElement.src = cardData.link;
+  imageElement.alt = cardData.name;
+  setListenersForCard(card);
+  return card;
 }
-render();
+renderInitialCards();
 function setListenersForCard(element) {
   const deleteButton = element.querySelector(".element__remove-icon");
   deleteButton.addEventListener("click", handleDelete);
-  console.log(deleteButton);
   const imageElement = element.querySelector(".element__image");
   const headerElement = element.querySelector(".element__title");
   imageElement.addEventListener("click", function () {
@@ -151,20 +117,20 @@ function likeCard(event) {
 }
 function handleDelete(event) {
   const currentCard = event.target.closest(".element");
-  console.log(currentCard);
   currentCard.remove();
   return currentCard;
 }
 function handleFormSubmitNewCard(event) {
   event.preventDefault();
   const newImage = { name: placeNameInput.value, link: placeNameLink.value };
-  const newCard = renderCard(newImage);
-  templateElement.prepend(newCard);
-  console.log(newImage);
+  const newCard = createCard(newImage);
+  cardsContainer.prepend(newCard);
+  placeNameInput.value = "";
+  placeNameLink.value = "";
   closePopupAddCard();
   return newImage;
 }
-formButton.addEventListener("click", handleFormSubmitNewCard);
+cardFormSubmitButton.addEventListener("click", handleFormSubmitNewCard);
 // зум картинки
 function photoView(photoUrl, photoCapt) {
   photo.src = photoUrl;

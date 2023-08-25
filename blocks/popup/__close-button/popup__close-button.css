@@ -5,7 +5,7 @@
   position: absolute;
   background-color: transparent;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   border: none;
   top: -40px;
   right: -40px;

@@ -1,5 +1,11 @@
 .popup__photo {
-width: 100%;
-max-height: 75vh;
-max-width: 75vw;
+  max-height: 75vh;
+  max-width: 75vw;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  .popup__photo {
+    padding: auto 40px;
+  }
 }

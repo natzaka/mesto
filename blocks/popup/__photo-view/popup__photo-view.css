@@ -1,8 +1,8 @@
 .popup__photo-view {
-    position: relative;
-    box-sizing: border-box;
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0;
-    padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
 }

@@ -21,7 +21,6 @@ const popupElementEditCloseButton = popupElementEdit.querySelector(
 const buttonEditProfile = document.querySelector(".profile__edit");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
-const saveButton = document.querySelector(".button_save");
 //форма добавления карточки
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector(".template").content;
@@ -104,7 +103,7 @@ function setListenersForCard(element) {
   const imageElement = element.querySelector(".element__image");
   const headerElement = element.querySelector(".element__title");
   imageElement.addEventListener("click", function () {
-    photoView(imageElement.src, headerElement.textContent);
+    handleOpenImagePopup(imageElement.src, headerElement.textContent);
   });
   const likeButton = element.querySelector(".element__like");
   likeButton.addEventListener("click", likeCard);
@@ -125,14 +124,13 @@ function handleFormSubmitNewCard(event) {
   const newImage = { name: placeNameInput.value, link: placeNameLink.value };
   const newCard = createCard(newImage);
   cardsContainer.prepend(newCard);
-  placeNameInput.value = "";
-  placeNameLink.value = "";
+  document.getElementById("form_type_card").reset();
   closePopupAddCard();
   return newImage;
 }
 cardFormSubmitButton.addEventListener("click", handleFormSubmitNewCard);
 // зум картинки
-function photoView(photoUrl, photoCapt) {
+function handleOpenImagePopup(photoUrl, photoCapt) {
   photo.src = photoUrl;
   photo.alt = photoCapt;
   photoName.textContent = photoCapt;

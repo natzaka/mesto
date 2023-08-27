@@ -25,6 +25,7 @@ const profileJob = document.querySelector(".profile__job");
 const cardsContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector(".template").content;
 const addPlace = document.querySelector(".profile__add");
+const cardForm = document.querySelector(".form_type_card");
 const cardFormSubmitButton = document.querySelector("#submit__newCard");
 const placeNameInput = document.querySelector(".form__item_type_place-name");
 const placeNameLink = document.querySelector(".form__item_type_link");
@@ -124,7 +125,7 @@ function handleFormSubmitNewCard(event) {
   const newImage = { name: placeNameInput.value, link: placeNameLink.value };
   const newCard = createCard(newImage);
   cardsContainer.prepend(newCard);
-  document.getElementById("form_type_card").reset();
+  cardForm.reset();
   closePopupAddCard();
   return newImage;
 }

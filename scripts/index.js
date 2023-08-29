@@ -34,6 +34,7 @@ const photo = popupElementZoom.querySelector(".popup__photo");
 const photoName = popupElementZoom.querySelector(".photo-title");
 // открытие попапа
 function openPopup(popup) {
+  document.addEventListener('keydown', closePopupByEsc);
   popup.classList.add("popup_opened");
 }
 function openPopupElementAdd() {
@@ -49,20 +50,24 @@ function openPopupElementEditProfile() {
 buttonEditProfile.addEventListener("click", openPopupElementEditProfile);
 // закрытие попапа
 function closePopup(popup) {
+  document.removeEventListener('keydown', closePopupByEsc);
   popup.classList.remove("popup_opened");
 }
 function closePopupAddCard() {
   closePopup(popupElementAdd);
 }
 popupElementAddCloseButton.addEventListener("click", closePopupAddCard);
+popupElementAdd.addEventListener('mousedown', closePopupByOverlay);
 function closePopupEditProfile() {
   closePopup(popupElementEdit);
 }
 popupElementEditCloseButton.addEventListener("click", closePopupEditProfile);
+popupElementEdit.addEventListener('mousedown', closePopupByOverlay);
 function closePopupElementZoom() {
   closePopup(popupElementZoom);
 }
 popupElementZoomCloseButton.addEventListener("click", closePopupElementZoom);
+popupElementZoom.addEventListener('mousedown', closePopupByOverlay);
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function handleProfileFormSubmit(evt) {
@@ -136,4 +141,18 @@ function handleOpenImagePopup(photoUrl, photoCapt) {
   photo.alt = photoCapt;
   photoName.textContent = photoCapt;
   openPopup(popupElementZoom);
+}
+//закрытие попапа по нажатию на Esc
+function closePopupByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const currentPopup = document.querySelector('.popup_opened');
+    closePopup(currentPopup);
+  }
+}
+//закрытие попапа по нажатию на оверлей
+function closePopupByOverlay(evt) {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(evt.target);
+  }
+
 }

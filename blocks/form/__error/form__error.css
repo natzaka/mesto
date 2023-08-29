@@ -1,0 +1,15 @@
+.form__error {
+    color:#F00;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    min-height: 12px;
+    max-width: 358px;
+    display: block;
+}
+.form__error:last-of-type {
+    margin-bottom: 0;
+}

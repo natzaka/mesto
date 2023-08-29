@@ -17,7 +17,10 @@
   max-width: 358px;
   width: 100%;
 }
-
+.form__item:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 5px;
+}
 @media screen and (max-width: 450px) {
   .form__item {
     max-width: 238px;

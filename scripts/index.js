@@ -133,11 +133,12 @@ function handleFormSubmitNewCard(evt) {
   const newCard = createCard(newImage);
   cardsContainer.prepend(newCard);
   cardForm.reset();
-  toggleButtonState(submitButtonElement, inputList, config);
+  evt.submitter.classList.add('popup__button_invalid'); 
+  evt.submitter.disabled = 'disabled';
   closePopupAddCard();
-  // return newImage;
+
 }
-cardFormSubmitButton.addEventListener("submit", handleFormSubmitNewCard);
+cardForm.addEventListener("submit", handleFormSubmitNewCard);
 // зум картинки
 function handleOpenImagePopup(photoUrl, photoCapt) {
   photo.src = photoUrl;

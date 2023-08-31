@@ -1,11 +1,21 @@
+const configForm = {
+  formSelector: ".form",
+  inputSelector: ".form__item",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_invalid",
+  inputErrorClass: "form__error",
+
+};
 function showError(inputElement, errorElement, config) {
+  if (!inputElement || !errorElement) return;
   inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
 }
 
 function hideError(inputElement, errorElement, config) {
+  if (!inputElement || !errorElement) return;
   inputElement.classList.remove(config.inputErrorClass);
-  errorElement.textContent = inputElement.validationMessage;
+  errorElement.textContent = "";
 }
 
 function checkInputValidity(inputElement, formElement, config) {
@@ -16,19 +26,21 @@ function checkInputValidity(inputElement, formElement, config) {
   } else {
     showError(inputElement, errorElement, config);
   }
-  console.log(errorElement);
 }
-
-function toggleButtonState(buttonElement, isActive, config) {
-  if (isActive) {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove(config.inactiveButtonClass);
+function checkInvalidButton(buttonElement, config) {
+  buttonElement.classList.add(config.inactiveButtonClass);
+  buttonElement.disabled = "disabled";
+}
+function toggleButtonState(submitButtonElement, inputList, config) {
+  if (inputList) {
+    submitButtonElement.disabled = false;
+    submitButtonElement.classList.remove(config.inactiveButtonClass);
+    
   } else {
-    buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.disabled = "disabled";
+    checkInvalidButton(submitButtonElement, config)
+    
   }
 }
-
 function setEventListener(formElement, config) {
   const inputList = document.querySelectorAll(config.inputSelector);
   const submitButtonElement = formElement.querySelector(
@@ -52,18 +64,13 @@ function setEventListener(formElement, config) {
   });
 }
 
+
+
 function enableValidation(config) {
   const formsList = document.querySelectorAll(config.formSelector);
   [...formsList].forEach(function (formElement) {
     setEventListener(formElement, config);
   });
 }
-const config = {
-  formSelector: ".form",
-  inputSelector: ".form__item",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_invalid",
-  inputErrorClass: "form__error",
-};
 
-enableValidation(config);
+enableValidation(configForm);

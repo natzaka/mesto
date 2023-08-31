@@ -32,11 +32,13 @@ const placeNameLink = document.querySelector(".form__item_type_link");
 //зум картинки
 const photo = popupElementZoom.querySelector(".popup__photo");
 const photoName = popupElementZoom.querySelector(".photo-title");
+const popupSubmitButton = cardForm.querySelector(".popup__button");
 // открытие попапа
 function openPopup(popup) {
-  document.addEventListener('keydown', closePopupByEsc);
+  document.addEventListener("keydown", closePopupByEsc);
   popup.classList.add("popup_opened");
 }
+
 function openPopupElementAdd() {
   openPopup(popupElementAdd);
 }
@@ -50,24 +52,24 @@ function openPopupElementEditProfile() {
 buttonEditProfile.addEventListener("click", openPopupElementEditProfile);
 // закрытие попапа
 function closePopup(popup) {
-  document.removeEventListener('keydown', closePopupByEsc);
+  document.removeEventListener("keydown", closePopupByEsc);
   popup.classList.remove("popup_opened");
 }
 function closePopupAddCard() {
   closePopup(popupElementAdd);
 }
 popupElementAddCloseButton.addEventListener("click", closePopupAddCard);
-popupElementAdd.addEventListener('mousedown', closePopupByOverlay);
+popupElementAdd.addEventListener("mousedown", closePopupByOverlay);
 function closePopupEditProfile() {
   closePopup(popupElementEdit);
 }
 popupElementEditCloseButton.addEventListener("click", closePopupEditProfile);
-popupElementEdit.addEventListener('mousedown', closePopupByOverlay);
+popupElementEdit.addEventListener("mousedown", closePopupByOverlay);
 function closePopupElementZoom() {
   closePopup(popupElementZoom);
 }
 popupElementZoomCloseButton.addEventListener("click", closePopupElementZoom);
-popupElementZoom.addEventListener('mousedown', closePopupByOverlay);
+popupElementZoom.addEventListener("mousedown", closePopupByOverlay);
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function handleProfileFormSubmit(evt) {
@@ -125,16 +127,17 @@ function handleDelete(event) {
   currentCard.remove();
   return currentCard;
 }
-function handleFormSubmitNewCard(event) {
-  event.preventDefault();
+function handleFormSubmitNewCard(evt) {
+  evt.preventDefault();
   const newImage = { name: placeNameInput.value, link: placeNameLink.value };
   const newCard = createCard(newImage);
   cardsContainer.prepend(newCard);
   cardForm.reset();
+  toggleButtonState(submitButtonElement, inputList, config);
   closePopupAddCard();
-  return newImage;
+  // return newImage;
 }
-cardFormSubmitButton.addEventListener("click", handleFormSubmitNewCard);
+cardFormSubmitButton.addEventListener("submit", handleFormSubmitNewCard);
 // зум картинки
 function handleOpenImagePopup(photoUrl, photoCapt) {
   photo.src = photoUrl;
@@ -144,15 +147,14 @@ function handleOpenImagePopup(photoUrl, photoCapt) {
 }
 //закрытие попапа по нажатию на Esc
 function closePopupByEsc(evt) {
-  if (evt.key === 'Escape') {
-    const currentPopup = document.querySelector('.popup_opened');
+  if (evt.key === "Escape") {
+    const currentPopup = document.querySelector(".popup_opened");
     closePopup(currentPopup);
   }
 }
 //закрытие попапа по нажатию на оверлей
 function closePopupByOverlay(evt) {
-  if (evt.target.classList.contains('popup')) {
+  if (evt.target.classList.contains("popup")) {
     closePopup(evt.target);
   }
-
 }

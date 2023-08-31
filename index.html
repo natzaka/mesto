@@ -46,7 +46,10 @@
             maxlength="40"
             required
           />
-          <span id="name-error" class="error form__error form__error_name"></span>
+          <span
+            id="name-error"
+            class="error form__error form__error_name"
+          ></span>
           <input
             class="form__item form__item_type_job"
             type="text"
@@ -74,16 +77,21 @@
             maxlength="30"
             required
           />
-          <span id="place-name-error" class="error form__error form__error_place"></span>
+          <span
+            id="place-name-error"
+            class="error form__error form__error_place"
+          ></span>
           <input
             class="form__item form__item_type_link"
             type="url"
             name="place-link"
             placeholder="Ссылка на картинку"
-
             required
           />
-          <span id="place-link-error" class="error form__error form__error_link"></span>
+          <span
+            id="place-link-error"
+            class="error form__error form__error_link"
+          ></span>
           <button class="popup__button" type="submit" id="submit__newCard">
             Создать
           </button>
@@ -122,7 +130,8 @@
       </li>
     </template>
     <script src="./scripts/cards.js"></script>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script src="./scripts/validate.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
+    
   </body>
 </html>
